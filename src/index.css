@@ -1,0 +1,53 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.background-container {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 40%, #1d4ed8 100%);
+    background-size: cover;
+}
+
+/* Route transition helpers (slide-in) */
+.route-wrapper {
+  will-change: transform, opacity;
+}
+
+.route-enter {
+  opacity: 0;
+  transform: translateX(40px);
+}
+.route-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 400ms ease-out, transform 400ms ease-out;
+}
+.route-exit {
+  opacity: 1;
+  transform: translateX(0);
+}
+.route-exit-active {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 400ms ease-out, transform 400ms ease-out;
+}
+
+.error-text {
+  @apply flex justify-start text-red-500 text-xs ml-0.5 font-medium mt-1;
+}
+
+@keyframes textColorChange {
+  0% {
+    color: gray;
+  }
+  50% {
+    color: black;
+  }
+  100% {
+    color: gray;
+  }
+}
+
+.text-color-change {
+  animation: textColorChange 1s infinite;
+}
